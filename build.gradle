@@ -44,6 +44,8 @@ dependencies {
 
     // 该依赖用于编译阶段
     compile('org.springframework.boot:spring-boot-starter-web')
+    // 添加Thymeleaf的依赖
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     // 该依赖用于测试阶段
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
