@@ -45,7 +45,14 @@ dependencies {
     // 该依赖用于编译阶段
     compile('org.springframework.boot:spring-boot-starter-web')
     // 添加Thymeleaf的依赖
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf:3.0.9.RELEASE')
+    // 添加Spring Data JPA 的依赖
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    // 添加MySQL链接驱动的依赖
+    compile('mysql:mysql-connector-java:6.0.5')
+//    compile('org.springframework.data:spring-data-jpa')
+    // 添加H2的依赖
+    runtime('com.h2database:h2')
     // 该依赖用于测试阶段
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }

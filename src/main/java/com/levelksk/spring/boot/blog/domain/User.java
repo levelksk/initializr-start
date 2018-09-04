@@ -1,11 +1,27 @@
 package com.levelksk.spring.boot.blog.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * User 实体.
+ *
+ * @since 1.0.0 2017年7月9日
+ * @author <a href="https://waylau.com">Way Lau</a>
+ */
+@Entity // 实体
 public class User {
-    private Long id; //实体的唯一标识
+
+    @Id // 主键
+    @GeneratedValue(strategy=GenerationType.IDENTITY) // 自增长策略
+    private Long id; // 实体一个唯一标识
     private String name;
     private String email;
 
-    public User() {}
+    protected User() { // 无参构造函数；设为 protected 防止直接使用
+    }
 
     public User(Long id, String name, String email) {
         this.id = id;
@@ -16,24 +32,79 @@ public class User {
     public Long getId() {
         return id;
     }
-
-    public String getEmail() {
-        return email;
+    public void setId(Long id) {
+        this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getEmail() {
+        return email;
+    }
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public String toString() {
+        return String.format("User [id=%d, name='%s', email='%s']", id, name, email);
     }
 }
+//package com.levelksk.spring.boot.blog.domain;
+//
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
+//
+//@Entity //实体
+//public class User {
+//
+//    @Id //主键
+//    @GeneratedValue(strategy=GenerationType.IDENTITY) // 自增长策略
+//    private Long id; //实体的唯一标识
+//    private String name;
+//    private String email;
+//
+//    protected User() { // 午餐构造函数； 设为protected防止直接使用
+//
+//    }
+//
+//    public User(Long id, String name, String email) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return String.format("User[id=%d, name='%s', email='%s']", id, name, email);
+//    }
+//}
